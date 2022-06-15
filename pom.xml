@@ -68,6 +68,7 @@
 				</dependencies>
 				<executions>
 					<execution>
+						<?m2e ignore?>
 						<goals>
 							<goal>check</goal>
 						</goals>
