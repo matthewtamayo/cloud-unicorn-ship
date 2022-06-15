@@ -34,8 +34,10 @@ class CodeControllerIT {
 	void shouldReturnAllCodes() throws Exception {
 		Code code = new Code(30L, "ca", "Canada");
 		given(this.repository.findAll()).willReturn(Arrays.asList(code));
-		this.mockMvc.perform(get("/code")).andExpect(status().isOk()).andExpect(jsonPath("$[0].uuid").value(30L))
-				.andExpect(jsonPath("$[0].code").value("ca")).andExpect(jsonPath("$[0].name").value("Canada"));
+		this.mockMvc.perform(get("/code")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].uuid").value(code.getUuid()))
+				.andExpect(jsonPath("$[0].code").value(code.getCode()))
+				.andExpect(jsonPath("$[0].name").value(code.getName()));
 	}
 
 }
