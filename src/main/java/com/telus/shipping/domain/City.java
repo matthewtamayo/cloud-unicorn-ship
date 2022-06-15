@@ -1,5 +1,8 @@
 package com.telus.shipping.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,8 +13,10 @@ import lombok.Data;
  */
 @AllArgsConstructor
 @Data
+@Entity
 public class City {
 
+	@Id
 	private Long uuid;
 
 	private String code;
