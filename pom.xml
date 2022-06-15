@@ -41,6 +41,7 @@
 				<version>0.0.33</version>
 				<executions>
 					<execution>
+						<?m2e ignore?>
 						<goals>
 							<goal>validate</goal>
 						</goals>
