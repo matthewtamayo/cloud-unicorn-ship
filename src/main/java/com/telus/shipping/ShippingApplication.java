@@ -19,4 +19,8 @@ public class ShippingApplication {
 		SpringApplication.run(ShippingApplication.class, args);
 	}
 
+	public Object openApi() {
+		return null;
+	}
+
 }
