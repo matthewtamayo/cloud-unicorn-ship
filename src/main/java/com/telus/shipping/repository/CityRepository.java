@@ -1,5 +1,8 @@
 package com.telus.shipping.repository;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.telus.shipping.domain.City;
 
 /**
@@ -7,8 +10,7 @@ import com.telus.shipping.domain.City;
  *
  * @author John Dexter Reyes
  */
-public interface CityRepository {
-
-	Iterable<City> findAll();
+@Repository
+public interface CityRepository extends CrudRepository<City, Long> {
 
 }
