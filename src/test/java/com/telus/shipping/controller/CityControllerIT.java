@@ -34,11 +34,14 @@ class CityControllerIT {
 	void shouldReturnAllCities() throws Exception {
 		City city = new City(3396054L, "ca", "abbey", "Abbey", "11", 50.7333330, -108.7500000);
 		given(this.repository.findAll()).willReturn(Arrays.asList(city));
-		this.mockMvc.perform(get("/city")).andExpect(status().isOk()).andExpect(jsonPath("$[0].uuid").value(3396054L))
-				.andExpect(jsonPath("$[0].code").value("ca")).andExpect(jsonPath("$[0].city").value("abbey"))
-				.andExpect(jsonPath("$[0].name").value("Abbey")).andExpect(jsonPath("$[0].region").value("11"))
-				.andExpect(jsonPath("$[0].latitude").value(50.7333330))
-				.andExpect(jsonPath("$[0].longitude").value(-108.7500000));
+		this.mockMvc.perform(get("/city")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].uuid").value(city.getUuid()))
+				.andExpect(jsonPath("$[0].code").value(city.getCode()))
+				.andExpect(jsonPath("$[0].city").value(city.getCity()))
+				.andExpect(jsonPath("$[0].name").value(city.getName()))
+				.andExpect(jsonPath("$[0].region").value(city.getRegion()))
+				.andExpect(jsonPath("$[0].latitude").value(city.getLatitude()))
+				.andExpect(jsonPath("$[0].longitude").value(city.getLongitude()));
 	}
 
 }
