@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * The {@link ShippingApplication} tests.
+ * The {@link ShippingApplication} integration tests.
  *
  * @author John Dexter Reyes
  */
 @SpringBootTest
-class ShippingApplicationTests {
+class ShippingApplicationIT {
 
 	@Test
-	void contextLoads() {
+	void shouldLoadContext() {
 	}
 
 }
