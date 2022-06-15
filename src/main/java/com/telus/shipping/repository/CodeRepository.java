@@ -1,5 +1,8 @@
 package com.telus.shipping.repository;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.telus.shipping.domain.Code;
 
 /**
@@ -7,8 +10,7 @@ import com.telus.shipping.domain.Code;
  *
  * @author John Dexter Reyes
  */
-public interface CodeRepository {
-
-	Iterable<Code> findAll();
+@Repository
+public interface CodeRepository extends CrudRepository<Code, Long> {
 
 }
