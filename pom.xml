@@ -60,6 +60,11 @@
 						<artifactId>checkstyle</artifactId>
 						<version>10.3</version>
 					</dependency>
+					<dependency>
+						<groupId>io.spring.javaformat</groupId>
+						<artifactId>spring-javaformat-checkstyle</artifactId>
+						<version>0.0.33</version>
+					</dependency>
 				</dependencies>
 			</plugin>
 			<plugin>
