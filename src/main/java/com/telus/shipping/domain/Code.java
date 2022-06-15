@@ -1,13 +1,21 @@
 package com.telus.shipping.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
  * The code bean.
  *
  * @author John Dexter Reyes
  */
+@AllArgsConstructor
+@Data
 public class Code {
 
-	public Code(Long uuid, String code, String name) {
-	}
+	private Long uuid;
+
+	private String code;
+
+	private String name;
 
 }
