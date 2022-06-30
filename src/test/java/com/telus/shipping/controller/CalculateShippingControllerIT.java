@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.telus.shipping.domain.City;
+import com.telus.shipping.domain.Ship;
 import com.telus.shipping.util.Calculator;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -38,11 +39,12 @@ class CalculateShippingControllerIT {
 	void shouldReturnShippingInfo() throws Exception {
 		City city = new City(3396054L, "ca", "abbey", "Abbey", "11", 50.7333330, -108.7500000);
 		given(this.calculator.getDistance(any(city.getClass()))).willReturn(7174L);
+		Ship ship = new Ship(7174L, 358.7);
 		this.mockMvc
 				.perform(post("/calculateShipping").contentType(MediaType.APPLICATION_JSON_VALUE)
 						.content(this.mapper.writeValueAsString(city)))
-				.andExpect(status().isOk()).andExpect(jsonPath("$.distance").value(7174L))
-				.andExpect(jsonPath("$.cost").value(358.7));
+				.andExpect(status().isOk()).andExpect(jsonPath("$.distance").value(ship.getDistance()))
+				.andExpect(jsonPath("$.cost").value(ship.getCost()));
 	}
 
 }
