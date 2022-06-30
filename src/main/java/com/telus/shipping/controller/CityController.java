@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.telus.shipping.domain.City;
@@ -23,8 +24,8 @@ public class CityController {
 	private CityRepository repository;
 
 	@GetMapping
-	public Iterable<City> get() {
-		return this.repository.findAll();
+	public Iterable<City> get(@RequestParam String code) {
+		return this.repository.findByCode(code);
 	}
 
 }
