@@ -29,10 +29,10 @@ class CityControllerTests {
 	private CityRepository repository;
 
 	@Test
-	void shouldReturnAllCities() {
+	void shouldReturnCitiesByCode() {
 		City city = new City(3396054L, "ca", "abbey", "Abbey", "11", 50.7333330, -108.7500000);
-		given(this.repository.findAll()).willReturn(Arrays.asList(city));
-		assertThat(this.controller.get()).containsOnly(city);
+		given(this.repository.findByCode("ca")).willReturn(Arrays.asList(city));
+		assertThat(this.controller.get("ca")).containsOnly(city);
 	}
 
 }
