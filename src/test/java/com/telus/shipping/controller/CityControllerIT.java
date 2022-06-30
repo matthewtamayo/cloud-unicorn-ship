@@ -31,10 +31,10 @@ class CityControllerIT {
 	private CityRepository repository;
 
 	@Test
-	void shouldReturnAllCities() throws Exception {
+	void shouldReturnCitiesByCode() throws Exception {
 		City city = new City(3396054L, "ca", "abbey", "Abbey", "11", 50.7333330, -108.7500000);
-		given(this.repository.findAll()).willReturn(Arrays.asList(city));
-		this.mockMvc.perform(get("/city")).andExpect(status().isOk())
+		given(this.repository.findByCode("ca")).willReturn(Arrays.asList(city));
+		this.mockMvc.perform(get("/city").param("code", "ca")).andExpect(status().isOk())
 				.andExpect(jsonPath("$[0].uuid").value(city.getUuid()))
 				.andExpect(jsonPath("$[0].code").value(city.getCode()))
 				.andExpect(jsonPath("$[0].city").value(city.getCity()))
