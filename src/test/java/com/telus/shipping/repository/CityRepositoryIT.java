@@ -24,10 +24,10 @@ class CityRepositoryIT {
 	private TestEntityManager entityManager;
 
 	@Test
-	void shouldReturnAllCities() {
+	void shouldReturnCitiesByCode() {
 		City city = new City(3396054L, "ca", "abbey", "Abbey", "11", 50.7333330, -108.7500000);
 		this.entityManager.persist(city);
-		assertThat(this.repository.findAll()).containsOnly(city);
+		assertThat(this.repository.findByCode("ca")).containsOnly(city);
 	}
 
 }
