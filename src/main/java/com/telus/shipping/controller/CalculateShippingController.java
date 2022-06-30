@@ -1,5 +1,6 @@
 package com.telus.shipping.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import com.telus.shipping.util.Calculator;
  */
 @RequestMapping("/calculateShipping")
 @RestController
+@Tag(name = "calculateShipping")
 public class CalculateShippingController {
 
 	@Autowired
