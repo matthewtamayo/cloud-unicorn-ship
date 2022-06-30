@@ -13,4 +13,6 @@ import com.telus.shipping.domain.City;
 @Repository
 public interface CityRepository extends CrudRepository<City, Long> {
 
+	Iterable<City> findByCode(String code);
+
 }
